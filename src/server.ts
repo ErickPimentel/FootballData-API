@@ -2,14 +2,16 @@ import express from 'express';
 import http from 'http';
 import mongoose from 'mongoose';
 import { config } from './config/config';
+import Logging from './llibrary/Logging';
 
 const router = express();
 
 mongoose
     .connect(config.mongo.url, { retryWrites: true, w: 'majority' })
     .then(() => {
-        console.log('connected');
+        Logging.info('Connected to mongoDB');
     })
     .catch((error) => {
-        console.log(error);
+        Logging.error('Unable to connect');
+        Logging.error(error);
     });
