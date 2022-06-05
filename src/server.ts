@@ -3,6 +3,7 @@ import http from 'http';
 import mongoose from 'mongoose';
 import { config } from './config/config';
 import Logging from './llibrary/Logging';
+import athleteRoutes from './routes/AthleteRoutes';
 
 const router = express();
 
@@ -50,6 +51,7 @@ const StartServer = () => {
     });
 
     /** Routes */
+    router.use('/Athletes', athleteRoutes);
 
     /** Healthcheck */
     router.get('/ping', (req, res, next) => res.status(200).json({ message: 'pong' }));
