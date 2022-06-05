@@ -3,11 +3,26 @@ import mongoose from 'mongoose';
 import Contract from '../models/Contract';
 
 const createContract = (req: Request, res: Response, next: NextFunction) => {
-    const { name } = req.body;
+    const { id_contrato, contrato_numero, tipocontrato, codigo_atleta, nome, apelido, sexo, uf, codigo_clube, clube, data_publicacao, data_nascimento, datainicio, datatermino } = req.body;
+    console.log(req.body);
+    console.log(id_contrato, contrato_numero);
 
     const contract = new Contract({
         _id: new mongoose.Types.ObjectId(),
-        name
+        id_contrato,
+        contrato_numero,
+        tipocontrato,
+        codigo_atleta,
+        nome,
+        apelido,
+        sexo,
+        uf,
+        codigo_clube,
+        clube,
+        data_publicacao,
+        data_nascimento,
+        datainicio,
+        datatermino
     });
 
     return contract
