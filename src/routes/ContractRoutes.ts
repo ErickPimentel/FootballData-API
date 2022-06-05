@@ -7,5 +7,6 @@ router.post('/contract', ContractController.createContract);
 router.get('/contract/:contractId', ContractController.getContract);
 router.get('/contracts', ContractController.getAll);
 router.delete('/contract/:contractId', ContractController.deleteContract);
+router.put('/contract/:contractId', ContractController.updateContract);
 
 export = router;

@@ -34,4 +34,12 @@ const deleteContract = (req: Request, res: Response, next: NextFunction) => {
     return Contract.findByIdAndDelete(contractId).then((contract) => (contract ? res.status(201).json({ message: 'deleted' }) : res.status(404).json({ message: 'Not found' })));
 };
 
-export default { createContract, getContract, getAll, deleteContract };
+const updateContract = (req: Request, res: Response, next: NextFunction) => {
+    const contractId = req.params.contractId;
+
+    return Contract.findByIdAndUpdate(contractId, req.body, { new: true })
+        .then((contract) => (contract ? res.status(200).json({ contract }) : res.status(404).json({ message: 'Not found' })))
+        .catch((error) => res.status(500).json(error));
+};
+
+export default { createContract, getContract, getAll, deleteContract, updateContract };
