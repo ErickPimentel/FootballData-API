@@ -9,8 +9,8 @@ const createContract = async (req: Request, res: Response, next: NextFunction) =
     });
 
     try {
-        const contract_1 = await contract.save();
-        return res.status(201).json({ contract });
+        const savedContract = await contract.save();
+        return res.status(201).json({ savedContract });
     } catch (error) {
         return res.status(500).json({ error });
     }
