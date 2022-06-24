@@ -5,6 +5,7 @@ import { config } from './config/config';
 import Logging from './llibrary/Logging';
 import contractRoutes from './routes/ContractRoutes';
 import gameRoutes from './routes/GameRoutes';
+import playerRoutes from './routes/PlayerRoutes';
 
 const router = express();
 
@@ -54,6 +55,7 @@ const StartServer = () => {
     /** Routes */
     router.use(contractRoutes);
     router.use(gameRoutes);
+    router.use(playerRoutes);
 
     /** Healthcheck */
     router.get('/ping', (req, res, next) => res.status(200).json({ message: 'pong' }));
