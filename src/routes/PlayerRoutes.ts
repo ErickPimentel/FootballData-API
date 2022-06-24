@@ -3,7 +3,8 @@ import PlayerController from '../controllers/PlayerController';
 
 const router = express.Router();
 
-router.get('/player/:contractId', PlayerController.getPlayer);
+router.get('/contract/player/:contractId', PlayerController.getPlayerByContractId);
+router.get('/player/:playerCode', PlayerController.getPlayerByPlayerCode);
 router.get('/players', PlayerController.getAll);
 
 export = router;
