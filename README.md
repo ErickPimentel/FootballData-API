@@ -1,0 +1,4 @@
+- clone
+- npm install
+- npm install -g nodemon ts-node prettier typescript
+- nodemon
